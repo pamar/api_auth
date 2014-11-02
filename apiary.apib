@@ -1,0 +1,519 @@
+HOST: http://185.17.106.105:3002/
+
+--- ValBrembana API v1 ---
+---
+Welcome to the our API documentation. 
+
+
+#Authorization
+
+*Authorization true* indicates the need of authorization
+
+Logins and passwords are for humans. 
+
+Since it operates entirely using HTTP headers, server component does not have to be written in the same language as the clients.
+
+#Pagination
+
+*Pagination true* indicates the possibility of pagination requests
+
+The Platform currently supports Offset-zero-based pagination.
+
+
+Supports the following parameters:
+
+*c* : The number of individual objects that are returned in each page.
+
+*o* : This offsets the start of each page by the item number specified.
+
+*s* : Sort the results by the name of this param (es. name)
+
+Note: *c* and *o* are indivisible, the order must be *c*, *o* and *s*
+
+#Randomization
+
+*Randomization true* means it returns randomized results
+
+#Formatted
+
+*Formatted output true* means it can return formatted results by the extension of request
+
+.json
+
+.geojson
+
+.xml
+
+es. /tourism/search.geojson?location=45.9,9.45&theme=taste&section=activities
+
+returns the geojson formatted string: 
+
+	{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[45.841285,9.664516]},"properties":{"id":139,"addr_city":"S.Pellegrino Terme","addr_housenumber":"","addr_street":"","award_michelin":null,"beds":null,"brand":null,"cat":"spring","contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"cuisine":null,"description_en":"An old legend tells that even Leonardo da Vinci, who thoroughly studied water and its beneficial properties, during the XVI century visited the San Pellegrino spring and traced a map of the surroundings.","description_it":"La leggenda racconta che lo stesso Leonardo da Vinci, che compì vasti studi sull’acqua e fu autore di un trattato sulle sue proprietà, visitò nel 1500 la fonte di San Pellegrino mentre viveva a Milano e disegnò una carta geografica dell’intera zona.Nel 1748 l’acqua minerale che sgorga a San Pellegrino è analizzata per la prima volta. I risultati evidenziano una composizione rimasta inalterata fino a oggi. Nel 1760 Pellegrino Foppoli organizzò delle panche attorno alla fonte di San pellegrino dove poter sostare e gustare l’acqua minerale. E’ proprio in questo periodo che si diffuse, dapprima fra la nobiltà, la pratica di curare con le acque minerali varie patologie.","diet":null,"dog":null,"internet_access":null,"name":null,"opening_hours":null,"operator":null,"place":null,"product":null,"room":null,"rooms":null,"service_bicycle_rental":null,"smoking":null,"spa":null,"stars":null,"url_bookingcom":null,"url_facebook":null,"url_tripadvisor":null,"url_twitter":null,"wheelchair":null,"working_lunch":null,"geom":"POINT (45.841285 9.664516)","basic":true,"ascent":null,"descent":null,"distance":null,"ref":null,"route_duration":null,"route_duration_back":null,"sac_scale":null,"surface":null,"name_ru":null,"name_en":null,"name_it":"Fonte termale","feature_id":139,"facilities_it":null,"card_discount":null,"checkin_hours":null,"checkout_hours":null,"facilities_en":null,"contact_phone_other":null,"description_ru":null,"product_it":null,"product_en":null,"bicycle_rental":null,"bicycle_parking":null,"bicycle_kit":null,"bicycle_shuttle":null,"parking":null,"air_conditioning":null,"credit_card":null,"home_delivery":null,"private_room":null,"midnight_dinner":null,"soundproofing":null,"satellite_channels":null,"tv":null,"openair_space":null,"breakfast_included":null,"double_room_price":null,"single_room_price":null,"triple_room_price":null,"suite_room_price":null,"food_price":null,"dog_sitting":null,"baby_sitting":null,"addr_hamlet":null,"url_booking":null,"airport_shuttle_service":null,"language":null,"local_dishes_en":null,"local_dishes_it":null,"menu_biker":null,"menu_hiker":null,"menu_sporter":null,"url_other":null,"covers_number":null,"slug":"fonte-termale","geohash":"u0nugcjkzdck","themes":"culture;wellness;family;taste","description_other_it":null,"description_other_en":null,"price":null,"other_service":null,"altitude_max":null,"ending_point":null,"itinerary_step":null,"mtb_phys_scale":null,"mtb_practicability":null,"mtb_practicability_uphill":null,"mtb_scale":null,"mtb_scale_uphill":null,"mtb_tech_scale":null,"mtb_tech_scale_uphill":null,"mtb_type":null,"related_itinerary":null,"related_poi":null,"starting_point":null,"suggestions_en":null,"suggestions_it":null,"image":"64a9e54e-d6d3-44e1-abbf-7ae91f1b9aaa.jpeg","image_filename":"64a9e54e-d6d3-44e1-abbf-7ae91f1b9aaa.jpeg","image_id":90,"logo":null,"logo_filename":null,"middlecat":null,"keywords":"","friendly_id":"fonte-termale","user_id":null},"id":139},{"type":"Feature","geometry":{"type":"Point","coordinates":[45.822312,9.674813]},"properties":{"id":101,"addr_city":"S.Pellegrino Terme","addr_housenumber":"","addr_street":"","award_michelin":null,"beds":null,"brand":null,"cat":"company","contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"cuisine":null,"description_en":"S.Pellegrino is one of the world’s best known and most enjoyed Italian products because of its image and unmistakable taste, but also because of the excellent quality ensured at the San Pellegrino plant, which is one of the most advanced in Europe, with competence and passion. In 1899, the Società Anonima delle Terme di San Pellegrino, owner of the thermal spring of the same name, starts bottling the water for sale: the S.Pellegrino sparkling mineral water is born; Today, Sanpellegrino is now one of the Italian companies with the greatest growth and success: its mineral water, soft drinks and aperitives are sold in 130 countries worldwide and in the 2010, the important milestone of one-billion bottles produced in one year has been reached.","description_it":"S.Pellegrino è uno dei prodotti italiani più conosciuti e apprezzati al mondo grazie all’immagine e gusto inconfondibili, ma anche per la qualità che lo stabilimento di San Pellegrino, uno dei più avanzati in Europa, garantisce ogni giorno con competenza e passione. Nel 1899, la Società Anonima delle Terme di San Pellegrino, proprietaria dell’omonima fonte, inizia a imbottigliarne l’acqua per venderla, dando così inizio al mito dell’acqua minerale S.Pellegrino. Oggi, Sanpellegrino è una delle società italiane di maggior successo e con la più grande crescita: presente con la sua acqua minerale, aperitivi e bibite in 130 paesi nel mondo, nel 2010 è stato raggiunto il grande traguardo del miliardo di bottiglie prodotte.","diet":null,"dog":null,"internet_access":null,"name":null,"opening_hours":null,"operator":null,"place":null,"product":null,"room":null,"rooms":null,"service_bicycle_rental":null,"smoking":null,"spa":null,"stars":null,"url_bookingcom":null,"url_facebook":null,"url_tripadvisor":null,"url_twitter":null,"wheelchair":null,"working_lunch":null,"geom":"POINT (45.822312 9.674813)","basic":true,"ascent":null,"descent":null,"distance":null,"ref":null,"route_duration":null,"route_duration_back":null,"sac_scale":null,"surface":null,"name_ru":null,"name_en":null,"name_it":"San Pellegrino SpA","feature_id":101,"facilities_it":null,"card_discount":null,"checkin_hours":null,"checkout_hours":null,"facilities_en":null,"contact_phone_other":null,"description_ru":null,"product_it":null,"product_en":null,"bicycle_rental":null,"bicycle_parking":null,"bicycle_kit":null,"bicycle_shuttle":null,"parking":null,"air_conditioning":null,"credit_card":null,"home_delivery":null,"private_room":null,"midnight_dinner":null,"soundproofing":null,"satellite_channels":null,"tv":null,"openair_space":null,"breakfast_included":null,"double_room_price":null,"single_room_price":null,"triple_room_price":null,"suite_room_price":null,"food_price":null,"dog_sitting":null,"baby_sitting":null,"addr_hamlet":null,"url_booking":null,"airport_shuttle_service":null,"language":null,"local_dishes_en":null,"local_dishes_it":null,"menu_biker":null,"menu_hiker":null,"menu_sporter":null,"url_other":null,"covers_number":null,"slug":"san-pellegrino-spa-71d9d501-d684-46a1-ada8-edf171277f7f","geohash":"u0nusjsyr6p6","themes":"culture;wellness;family;taste","description_other_it":"Ispirandosi e affondando le sue radici in una tradizione italiana che palesa qualità e raffinatezza, S.Pellegrino è di fatto uno dei prodotti d'eccellenza italiani. Il forte consenso che il gusto unico di S.Pellegrino riceve dal mondo enogastronomico e gourmet rende quest’acqua un'icona di eleganza e il rappresentante ideale della cultura italiana all’estero.","description_other_en":"Inspired by and drawing from the Italian tradition of qualitye and refinement, S.Pellegrino is thus among the very best of Italian products. The undeniable endorsement S.Pellegrino’s unique taste gets from the best of the world of gourmet food and wine makes it an icon of elegance and a true representative of the Italian culture abroad.","price":"","other_service":null,"altitude_max":null,"ending_point":null,"itinerary_step":null,"mtb_phys_scale":null,"mtb_practicability":null,"mtb_practicability_uphill":null,"mtb_scale":null,"mtb_scale_uphill":null,"mtb_tech_scale":null,"mtb_tech_scale_uphill":null,"mtb_type":null,"related_itinerary":null,"related_poi":null,"starting_point":null,"suggestions_en":null,"suggestions_it":null,"image":null,"image_filename":null,"image_id":null,"logo":null,"logo_filename":null,"middlecat":null,"keywords":"","friendly_id":"san-pellegrino-spa-71d9d501-d684-46a1-ada8-edf171277f7f","user_id":null},"id":101},{"type":"Feature","geometry":{"type":"Point","coordinates":[45.810291,9.698129]},"properties":{"id":140,"addr_city":"Bracca","addr_housenumber":"","addr_street":"","award_michelin":null,"beds":null,"brand":null,"cat":"spring","contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"cuisine":null,"description_en":"In the 19th century they started selling the water from the “River” spring in casks and demijohns, primarily sought after by doctors and pharmacists around Bergamo for its diuretic and mineral properties.  In 1819 Maironi da Ponte wrote: “A copious stream of medicinal waters flows from the so-called River between the two neighbourhoods Zubione and Multidoni.  The unfortunate location of this stream is the only hurdle to its fame, but apart from that, where it is easy to reach, this water is just as good as the more famous water from S. Pellegrino”.  The first scientific paper written on the water was by Professor Monier in 1892: the water contains magnesium, sodium, potassium and calcium.  Four years later the mayor had a small drinking hall built.  Another scientific study, from 1902, defined the water as alkaline and diuretic par excellence.  Later there was also a study by the San Pellegrino priest E. Caffi, who stated the water was easier to digest than other local waters.","description_it":"Nel corso dell’800 s’iniziò a commercializzare in botti e damigiane l’acqua della fonte “River”, ricercata soprattutto da medici e farmacisti bergamaschi per le proprietà diuretiche e termali. Il Maironi da Ponte nel 1819 scrisse: “Fra le due contrade Zubioni e Multidoni, avvi una copiosa sorgente d’acque medicinali cosiddetta del River. La cattiva situazione di questa sorgente è l’unico obbietto alla sua celebrità, ma per altro in què sui contorni ove è facile l’accesso non è punto inferiore quest’acqua alla tanto rinomata di S. Pellegrino”. Il primo saggio scientifico sull’acqua è del professore ginevrino Monier del 1892: l’acqua vanta la presenza di magnesio, sodio, potassio e calcio.Quattro anni dopo il sindaco del tempo fece erigere una piccola sala mescite.È del 1902 un ulteriore studio scientifico che la definisce come l’acqua alcalina e diuretica per eccellenza. Segue anche uno studio del sacerdote sanpellegrinese E. Caffi, che la definisce più dirigibile di altre acque locali","diet":null,"dog":null,"internet_access":null,"name":null,"opening_hours":null,"operator":null,"place":null,"product":null,"room":null,"rooms":null,"service_bicycle_rental":null,"smoking":null,"spa":null,"stars":null,"url_bookingcom":null,"url_facebook":null,"url_tripadvisor":null,"url_twitter":null,"wheelchair":null,"working_lunch":null,"geom":"POINT (45.810291 9.698129)","basic":true,"ascent":null,"descent":null,"distance":null,"ref":null,"route_duration":null,"route_duration_back":null,"sac_scale":null,"surface":null,"name_ru":null,"name_en":null,"name_it":"Sorgente Bracca","feature_id":140,"facilities_it":null,"card_discount":null,"checkin_hours":null,"checkout_hours":null,"facilities_en":null,"contact_phone_other":null,"description_ru":null,"product_it":null,"product_en":null,"bicycle_rental":null,"bicycle_parking":null,"bicycle_kit":null,"bicycle_shuttle":null,"parking":null,"air_conditioning":null,"credit_card":null,"home_delivery":null,"private_room":null,"midnight_dinner":null,"soundproofing":null,"satellite_channels":null,"tv":null,"openair_space":null,"breakfast_included":null,"double_room_price":null,"single_room_price":null,"triple_room_price":null,"suite_room_price":null,"food_price":null,"dog_sitting":null,"baby_sitting":null,"addr_hamlet":null,"url_booking":null,"airport_shuttle_service":null,"language":null,"local_dishes_en":null,"local_dishes_it":null,"menu_biker":null,"menu_hiker":null,"menu_sporter":null,"url_other":null,"covers_number":null,"slug":"sorgente-bracca","geohash":"u0nusetbqc1n","themes":"culture;wellness;family;taste","description_other_it":"","description_other_en":"","price":"","other_service":null,"altitude_max":null,"ending_point":null,"itinerary_step":null,"mtb_phys_scale":null,"mtb_practicability":null,"mtb_practicability_uphill":null,"mtb_scale":null,"mtb_scale_uphill":null,"mtb_tech_scale":null,"mtb_tech_scale_uphill":null,"mtb_type":null,"related_itinerary":null,"related_poi":null,"starting_point":null,"suggestions_en":null,"suggestions_it":null,"image":"38ac3ddc-bf21-41b5-a7fa-6bebbc231b75.jpeg","image_filename":"38ac3ddc-bf21-41b5-a7fa-6bebbc231b75.jpeg","image_id":83,"logo":null,"logo_filename":null,"middlecat":null,"keywords":"","friendly_id":"sorgente-bracca","user_id":null},"id":140}]}
+
+---
+
+
+
+-- 
+User Resources 
+This resource allows to create users 
+--
+
+Creates a new User
+
+only users with admin role can do it
+
+#Roles:
+
+*superbusinessman, guest, admin*
+
+*Authorization true*
+
+POST /users
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 02 Jul 2013 08:18:55 GMT"
+> Host: "185.17.106.125:3002"
+> Authorization: "Authgraph test@maply.eu:bf65047c64b48efc29cdf70645d5efe8a39cd658b6be84d18ad3f7ca4df5314e"
+{ "email":"test@maply.eu","role":"admin" }
+< 200
+33
+
+
+
+This resource allow to update a user by id
+
+*Authorization true*
+PUT /users/:id
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:14:33 GMT"
+> Host: "185.17.106.125:3002"
+> Authorization: "Authgraph 1:91e36544d7300100c17d83b18f3a4046729524f4693e8fa439bcb7e630afe964"
+{ "email":"test@maply.eu","role":"admin" }
+< 200
+{ "email":"test@maply.eu","role":"admin","id":33 }
+
+
+
+This resource delete a user by id
+
+*Authorization true*
+DELETE /users/:id
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:14:33 GMT"
+> Host: "185.17.106.125:3002"
+> Authorization: "Authgraph 1:91e36544d7300100c17d83b18f3a4046729524f4693e8fa439bcb7e630afe964"
+< 200
+{ "id":33 }
+
+
+
+This resource allows you to retrieve the users with 'businessman' role
+
+*Authorization true*
+GET /users/businessman
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:14:33 GMT"
+> Host: "185.17.106.125:3002"
+> Authorization: "Authgraph 1:91e36544d7300100c17d83b18f3a4046729524f4693e8fa439bcb7e630afe964"
+{"duration":20000,"summary":"descrizione del nuovo evento","start_date":"2013/08/13","language":"it","name":"nuovo evento","url":"http://www.maply.eu","created_at":"2013-06-06T15:01:20.804Z","updated_at":"2013-06-06T15:01:20.804Z","geom":"POINT (45.8219915 9.5103518)","place":"Locatello","cat":""}
+< 201
+{"id":7,"duration":20000,"summary":"descrizione del nuovo evento","start_date":"2013/08/13","language":"it","name":"nuovo evento","url":"http://www.maply.eu","created_at":"2013-06-18T16:09:24.030Z","updated_at":"2013-06-18T16:09:24.030Z","geom":"POINT (45.811531 9.535014)","place":"Locatello","main_image":null,"cat":"","feature_id":78}
+
+
+
+
+-- 
+Login Resources 
+This resource allows to login 
+--
+
+Retrieve the user_id 
+
+*Authorization header must have the user_email instead of user_id*
+
+*Authorization true*
+
+
+
+GET /login
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 02 Jul 2013 08:18:55 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph marco.paglia@maply.eu:bf65047c64b48efc29cdf70645d5efe8a39cd658b6be84d18ad3f7ca4df5314e"
+< 200
+{"id":77,"role":"businessman"}
+
+
+-- 
+Tourism Resources 
+#Overview
+
+id, slug, cat, theme, feature_id, feature_name, feature_city, price, geom, duration, start_date, end_date, name_it, name_en, image
+
+#Details
+
+id, slug, theme, active,  operator: string, feature_id, feature_name, feature_city, cat, price, geom, duration, start_date, end_date, name_it, name_en, description_en, description_it, contact_email, contact_phone, contact_phone, contact_phone_mobile, contact_website, url_facebook, url_twitter, wheelchair, dog, internet_access, performers, rainy_alternative, image
+
+--
+
+This resource 
+
+#Params are:
+
+location: latitude:float,longitude:float, theme: string, section: string
+
+*Formatted output true*
+
+*Authorization true*
+GET /tourism/search
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:14:33 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:91e36544d7300100c17d83b18f3a4046729524f4693e8fa439bcb7e630afe964"
+?location=45.9,9.45&theme=taste&section=activities
+< 200
+[{"id":139,"addr_city":"S.Pellegrino Terme","addr_housenumber":"","addr_street":"","award_michelin":null,"beds":null,"brand":null,"cat":"spring","contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"cuisine":null,"description_en":"An old legend tells that even Leonardo da Vinci, who thoroughly studied water and its beneficial properties, during the XVI century visited the San Pellegrino spring and traced a map of the surroundings.","description_it":"La leggenda racconta che lo stesso Leonardo da Vinci, che compì vasti studi sull’acqua e fu autore di un trattato sulle sue proprietà, visitò nel 1500 la fonte di San Pellegrino mentre viveva a Milano e disegnò una carta geografica dell’intera zona.Nel 1748 l’acqua minerale che sgorga a San Pellegrino è analizzata per la prima volta. I risultati evidenziano una composizione rimasta inalterata fino a oggi. Nel 1760 Pellegrino Foppoli organizzò delle panche attorno alla fonte di San pellegrino dove poter sostare e gustare l’acqua minerale. E’ proprio in questo periodo che si diffuse, dapprima fra la nobiltà, la pratica di curare con le acque minerali varie patologie.","diet":null,"dog":null,"internet_access":null,"name":null,"opening_hours":null,"operator":null,"place":null,"product":null,"room":null,"rooms":null,"service_bicycle_rental":null,"smoking":null,"spa":null,"stars":null,"url_bookingcom":null,"url_facebook":null,"url_tripadvisor":null,"url_twitter":null,"wheelchair":null,"working_lunch":null,"geom":"POINT (45.841285 9.664516)","basic":true,"ascent":null,"descent":null,"distance":null,"ref":null,"route_duration":null,"route_duration_back":null,"sac_scale":null,"surface":null,"name_ru":null,"name_en":null,"name_it":"Fonte termale","feature_id":139,"facilities_it":null,"card_discount":null,"checkin_hours":null,"checkout_hours":null,"facilities_en":null,"contact_phone_other":null,"description_ru":null,"product_it":null,"product_en":null,"bicycle_rental":null,"bicycle_parking":null,"bicycle_kit":null,"bicycle_shuttle":null,"parking":null,"air_conditioning":null,"credit_card":null,"home_delivery":null,"private_room":null,"midnight_dinner":null,"soundproofing":null,"satellite_channels":null,"tv":null,"openair_space":null,"breakfast_included":null,"double_room_price":null,"single_room_price":null,"triple_room_price":null,"suite_room_price":null,"food_price":null,"dog_sitting":null,"baby_sitting":null,"addr_hamlet":null,"url_booking":null,"airport_shuttle_service":null,"language":null,"local_dishes_en":null,"local_dishes_it":null,"menu_biker":null,"menu_hiker":null,"menu_sporter":null,"url_other":null,"covers_number":null,"slug":"fonte-termale","geohash":"u0nugcjkzdck","themes":"culture;wellness;family;taste","description_other_it":null,"description_other_en":null,"price":null,"other_service":null,"altitude_max":null,"ending_point":null,"itinerary_step":null,"mtb_phys_scale":null,"mtb_practicability":null,"mtb_practicability_uphill":null,"mtb_scale":null,"mtb_scale_uphill":null,"mtb_tech_scale":null,"mtb_tech_scale_uphill":null,"mtb_type":null,"related_itinerary":null,"related_poi":null,"starting_point":null,"suggestions_en":null,"suggestions_it":null,"image":"64a9e54e-d6d3-44e1-abbf-7ae91f1b9aaa.jpeg","image_filename":"64a9e54e-d6d3-44e1-abbf-7ae91f1b9aaa.jpeg","image_id":90,"logo":null,"logo_filename":null,"middlecat":null,"keywords":"","friendly_id":"fonte-termale","user_id":null},{"id":101,"addr_city":"S.Pellegrino Terme","addr_housenumber":"","addr_street":"","award_michelin":null,"beds":null,"brand":null,"cat":"company","contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"cuisine":null,"description_en":"S.Pellegrino is one of the world’s best known and most enjoyed Italian products because of its image and unmistakable taste, but also because of the excellent quality ensured at the San Pellegrino plant, which is one of the most advanced in Europe, with competence and passion. In 1899, the Società Anonima delle Terme di San Pellegrino, owner of the thermal spring of the same name, starts bottling the water for sale: the S.Pellegrino sparkling mineral water is born; Today, Sanpellegrino is now one of the Italian companies with the greatest growth and success: its mineral water, soft drinks and aperitives are sold in 130 countries worldwide and in the 2010, the important milestone of one-billion bottles produced in one year has been reached.","description_it":"S.Pellegrino è uno dei prodotti italiani più conosciuti e apprezzati al mondo grazie all’immagine e gusto inconfondibili, ma anche per la qualità che lo stabilimento di San Pellegrino, uno dei più avanzati in Europa, garantisce ogni giorno con competenza e passione. Nel 1899, la Società Anonima delle Terme di San Pellegrino, proprietaria dell’omonima fonte, inizia a imbottigliarne l’acqua per venderla, dando così inizio al mito dell’acqua minerale S.Pellegrino. Oggi, Sanpellegrino è una delle società italiane di maggior successo e con la più grande crescita: presente con la sua acqua minerale, aperitivi e bibite in 130 paesi nel mondo, nel 2010 è stato raggiunto il grande traguardo del miliardo di bottiglie prodotte.","diet":null,"dog":null,"internet_access":null,"name":null,"opening_hours":null,"operator":null,"place":null,"product":null,"room":null,"rooms":null,"service_bicycle_rental":null,"smoking":null,"spa":null,"stars":null,"url_bookingcom":null,"url_facebook":null,"url_tripadvisor":null,"url_twitter":null,"wheelchair":null,"working_lunch":null,"geom":"POINT (45.822312 9.674813)","basic":true,"ascent":null,"descent":null,"distance":null,"ref":null,"route_duration":null,"route_duration_back":null,"sac_scale":null,"surface":null,"name_ru":null,"name_en":null,"name_it":"San Pellegrino SpA","feature_id":101,"facilities_it":null,"card_discount":null,"checkin_hours":null,"checkout_hours":null,"facilities_en":null,"contact_phone_other":null,"description_ru":null,"product_it":null,"product_en":null,"bicycle_rental":null,"bicycle_parking":null,"bicycle_kit":null,"bicycle_shuttle":null,"parking":null,"air_conditioning":null,"credit_card":null,"home_delivery":null,"private_room":null,"midnight_dinner":null,"soundproofing":null,"satellite_channels":null,"tv":null,"openair_space":null,"breakfast_included":null,"double_room_price":null,"single_room_price":null,"triple_room_price":null,"suite_room_price":null,"food_price":null,"dog_sitting":null,"baby_sitting":null,"addr_hamlet":null,"url_booking":null,"airport_shuttle_service":null,"language":null,"local_dishes_en":null,"local_dishes_it":null,"menu_biker":null,"menu_hiker":null,"menu_sporter":null,"url_other":null,"covers_number":null,"slug":"san-pellegrino-spa-71d9d501-d684-46a1-ada8-edf171277f7f","geohash":"u0nusjsyr6p6","themes":"culture;wellness;family;taste","description_other_it":"Ispirandosi e affondando le sue radici in una tradizione italiana che palesa qualità e raffinatezza, S.Pellegrino è di fatto uno dei prodotti d'eccellenza italiani. Il forte consenso che il gusto unico di S.Pellegrino riceve dal mondo enogastronomico e gourmet rende quest’acqua un'icona di eleganza e il rappresentante ideale della cultura italiana all’estero.","description_other_en":"Inspired by and drawing from the Italian tradition of qualitye and refinement, S.Pellegrino is thus among the very best of Italian products. The undeniable endorsement S.Pellegrino’s unique taste gets from the best of the world of gourmet food and wine makes it an icon of elegance and a true representative of the Italian culture abroad.","price":"","other_service":null,"altitude_max":null,"ending_point":null,"itinerary_step":null,"mtb_phys_scale":null,"mtb_practicability":null,"mtb_practicability_uphill":null,"mtb_scale":null,"mtb_scale_uphill":null,"mtb_tech_scale":null,"mtb_tech_scale_uphill":null,"mtb_type":null,"related_itinerary":null,"related_poi":null,"starting_point":null,"suggestions_en":null,"suggestions_it":null,"image":null,"image_filename":null,"image_id":null,"logo":null,"logo_filename":null,"middlecat":null,"keywords":"","friendly_id":"san-pellegrino-spa-71d9d501-d684-46a1-ada8-edf171277f7f","user_id":null},{"id":140,"addr_city":"Bracca","addr_housenumber":"","addr_street":"","award_michelin":null,"beds":null,"brand":null,"cat":"spring","contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"cuisine":null,"description_en":"In the 19th century they started selling the water from the “River” spring in casks and demijohns, primarily sought after by doctors and pharmacists around Bergamo for its diuretic and mineral properties.  In 1819 Maironi da Ponte wrote: “A copious stream of medicinal waters flows from the so-called River between the two neighbourhoods Zubione and Multidoni.  The unfortunate location of this stream is the only hurdle to its fame, but apart from that, where it is easy to reach, this water is just as good as the more famous water from S. Pellegrino”.  The first scientific paper written on the water was by Professor Monier in 1892: the water contains magnesium, sodium, potassium and calcium.  Four years later the mayor had a small drinking hall built.  Another scientific study, from 1902, defined the water as alkaline and diuretic par excellence.  Later there was also a study by the San Pellegrino priest E. Caffi, who stated the water was easier to digest than other local waters.","description_it":"Nel corso dell’800 s’iniziò a commercializzare in botti e damigiane l’acqua della fonte “River”, ricercata soprattutto da medici e farmacisti bergamaschi per le proprietà diuretiche e termali. Il Maironi da Ponte nel 1819 scrisse: “Fra le due contrade Zubioni e Multidoni, avvi una copiosa sorgente d’acque medicinali cosiddetta del River. La cattiva situazione di questa sorgente è l’unico obbietto alla sua celebrità, ma per altro in què sui contorni ove è facile l’accesso non è punto inferiore quest’acqua alla tanto rinomata di S. Pellegrino”. Il primo saggio scientifico sull’acqua è del professore ginevrino Monier del 1892: l’acqua vanta la presenza di magnesio, sodio, potassio e calcio.Quattro anni dopo il sindaco del tempo fece erigere una piccola sala mescite.È del 1902 un ulteriore studio scientifico che la definisce come l’acqua alcalina e diuretica per eccellenza. Segue anche uno studio del sacerdote sanpellegrinese E. Caffi, che la definisce più dirigibile di altre acque locali","diet":null,"dog":null,"internet_access":null,"name":null,"opening_hours":null,"operator":null,"place":null,"product":null,"room":null,"rooms":null,"service_bicycle_rental":null,"smoking":null,"spa":null,"stars":null,"url_bookingcom":null,"url_facebook":null,"url_tripadvisor":null,"url_twitter":null,"wheelchair":null,"working_lunch":null,"geom":"POINT (45.810291 9.698129)","basic":true,"ascent":null,"descent":null,"distance":null,"ref":null,"route_duration":null,"route_duration_back":null,"sac_scale":null,"surface":null,"name_ru":null,"name_en":null,"name_it":"Sorgente Bracca","feature_id":140,"facilities_it":null,"card_discount":null,"checkin_hours":null,"checkout_hours":null,"facilities_en":null,"contact_phone_other":null,"description_ru":null,"product_it":null,"product_en":null,"bicycle_rental":null,"bicycle_parking":null,"bicycle_kit":null,"bicycle_shuttle":null,"parking":null,"air_conditioning":null,"credit_card":null,"home_delivery":null,"private_room":null,"midnight_dinner":null,"soundproofing":null,"satellite_channels":null,"tv":null,"openair_space":null,"breakfast_included":null,"double_room_price":null,"single_room_price":null,"triple_room_price":null,"suite_room_price":null,"food_price":null,"dog_sitting":null,"baby_sitting":null,"addr_hamlet":null,"url_booking":null,"airport_shuttle_service":null,"language":null,"local_dishes_en":null,"local_dishes_it":null,"menu_biker":null,"menu_hiker":null,"menu_sporter":null,"url_other":null,"covers_number":null,"slug":"sorgente-bracca","geohash":"u0nusetbqc1n","themes":"culture;wellness;family;taste","description_other_it":"","description_other_en":"","price":"","other_service":null,"altitude_max":null,"ending_point":null,"itinerary_step":null,"mtb_phys_scale":null,"mtb_practicability":null,"mtb_practicability_uphill":null,"mtb_scale":null,"mtb_scale_uphill":null,"mtb_tech_scale":null,"mtb_tech_scale_uphill":null,"mtb_type":null,"related_itinerary":null,"related_poi":null,"starting_point":null,"suggestions_en":null,"suggestions_it":null,"image":"38ac3ddc-bf21-41b5-a7fa-6bebbc231b75.jpeg","image_filename":"38ac3ddc-bf21-41b5-a7fa-6bebbc231b75.jpeg","image_id":83,"logo":null,"logo_filename":null,"middlecat":null,"keywords":"","friendly_id":"sorgente-bracca","user_id":null}]
+
+
+Returns information by id  or slug
+
+*Formatted output true*
+
+*Authorization true*
+GET /tourism/:id
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:14:33 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:91e36544d7300100c17d83b18f3a4046729524f4693e8fa439bcb7e630afe964"
+< 200
+{"id":203,"addr_city":null,"addr_housenumber":null,"addr_street":null,"award_michelin":null,"beds":null,"brand":null,"cat":"hiking_track","contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"cuisine":null,"description_en":"This itinerary will bring you in touch with nature. There are many green spaces with meadows where the peasants farmed and raised their livestock on the summer pastures. In towns such as Costa Serina, Cornalba and Oltre il Colle where industrial development had less of an impact, residential areas with simplistic, characteristic rustic architecture in local stone and wood bear silent witness to the hardships of rural life in times past. The Via Mercatorum is an ideal path through the memories, religious architecture, native plants and panoramic views of these wonderful mountains, treasures to be discovered on an easy nature walk. The ancient routes used by men for travel, trade and meetings are unequivocally unique and grant access to even the most remote locations.","description_it":"Questo itinerario permetterà di vivere esperienze a contatto con la natura: ampie le zone di verde dove spiccano i prati, segno del lavoro dell’uomo contadino e soprattutto allevatore per ricavarne il pascolo estivo. In paesi come Costa Serina, Cornalba e Oltre il Colle, dove di minor impatto è stato lo sviluppo industriale, è facile ammirare nuclei abitati con le caratteristiche architetture rurali in pietra locale e legno, uniti in forme semplici, silenziosi testimoni della durezza del mondo rurale d’altri tempi. La Via Mercatorum rappresenta un’ideale percorso tra la memoria, le architetture religiose, gli endemismi floreali e i punti panoramici custoditi in queste splendide montagne, sono tesori da scoprire attraverso questo percorso naturalistico non impegnativo. Le antiche vie di comunicazione utilizzate dall’uomo per spostamenti, commerci ed incontri, sono unici ed inconfondibili e hanno il merito di raggiungere anche le località più remote.","diet":null,"dog":null,"internet_access":null,"name":null,"opening_hours":"Mar-Oct","operator":"Distretto del commercio 'Fontium et Mercatorum'","place":null,"product":null,"room":null,"rooms":null,"service_bicycle_rental":null,"smoking":null,"spa":null,"stars":null,"url_bookingcom":null,"url_facebook":null,"url_tripadvisor":null,"url_twitter":null,"wheelchair":null,"working_lunch":null,"geom":null,"basic":true,"ascent":658,"descent":667,"distance":10700,"ref":null,"route_duration":"4:30","route_duration_back":null,"sac_scale":null,"surface":null,"name_ru":null,"name_en":"Passi slow e green: circuito Via Mercatorum","name_it":"Passi slow e green: circuito Via Mercatorum","feature_id":203,"facilities_it":null,"card_discount":null,"checkin_hours":null,"checkout_hours":null,"facilities_en":null,"contact_phone_other":null,"description_ru":null,"product_it":null,"product_en":null,"bicycle_rental":null,"bicycle_parking":null,"bicycle_kit":null,"bicycle_shuttle":null,"parking":null,"air_conditioning":null,"credit_card":null,"home_delivery":null,"private_room":null,"midnight_dinner":null,"soundproofing":null,"satellite_channels":null,"tv":null,"openair_space":null,"breakfast_included":null,"double_room_price":null,"single_room_price":null,"triple_room_price":null,"suite_room_price":null,"food_price":null,"dog_sitting":null,"baby_sitting":null,"addr_hamlet":null,"url_booking":null,"airport_shuttle_service":null,"language":null,"local_dishes_en":null,"local_dishes_it":null,"menu_biker":null,"menu_hiker":null,"menu_sporter":null,"url_other":null,"covers_number":null,"slug":"passi-slow-e-green-circuito-via-mercatorum","geohash":null,"themes":"outdoors;family","description_other_it":null,"description_other_en":null,"price":null,"other_service":null,"altitude_max":"968","ending_point":null,"itinerary_step":"-21233;-21240;-21244","mtb_phys_scale":null,"mtb_practicability":null,"mtb_practicability_uphill":null,"mtb_scale":null,"mtb_scale_uphill":null,"mtb_tech_scale":null,"mtb_tech_scale_uphill":null,"mtb_type":null,"related_itinerary":null,"related_poi":"","starting_point":"98","suggestions_en":null,"suggestions_it":null,"image":"c28e285b-3284-4077-a984-b568ea97cb88.jpeg","image_filename":"c28e285b-3284-4077-a984-b568ea97cb88.jpeg","image_id":56,"logo":null,"logo_filename":null,"middlecat":null,"keywords":"","friendly_id":"passi-slow-e-green-circuito-via-mercatorum","user_id":null}
+
+Returns the list of themes
+
+*Authorization true*
+GET /tourism/themes
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:14:33 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:91e36544d7300100c17d83b18f3a4046729524f4693e8fa439bcb7e630afe964"
+< 200
+[{"id":1,"theme":"wellness","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.703Z","updated_at":"2014-08-28T16:05:56.703Z"},{"id":2,"theme":"family","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.710Z","updated_at":"2014-08-28T16:05:56.710Z"},{"id":3,"theme":"culture","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.728Z","updated_at":"2014-08-28T16:05:56.728Z"},{"id":4,"theme":"outdoors","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.731Z","updated_at":"2014-08-28T16:05:56.731Z"},{"id":5,"theme":"taste","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.737Z","updated_at":"2014-08-28T16:05:56.737Z"}]
+
+-- 
+Event Resources 
+#Overview
+
+cat, contact_url, duration, end_date, feature_city, feature_id, feature_name, geom, id, image, intro_gallery, name_en, name_it, place_en, place_it, price, slug, start_date, theme
+
+#Details
+
+active, cat, contact_email, contact_phone, contact_phone_mobile, contact_website, created_at, description_en, description_it, description_ru, dog, duration, end_date, feature_city, feature_id, feature_name, geohash, geom, id, image, image_id, internet_access, intro_gallery, lat, lon, main_image, name_en, name_it, name_ru, operator, performer, place_en, place_it, price, slug, start_date, theme, updated_at, url_facebook, url_twitter, wheelchair
+--
+
+This resource allows you to create an event at this place
+
+#Params are:
+
+active: boolean, theme: string, duration: integer, name_it: string,name_en: string,  cat: string, description_it: string, description_en: string, price: float, operator: string, contact_phone: string, contact_phone_mobile: string, internet_access: string, contact_website: string, contact_email: string, url_facebook: string, url_twitter: string, dog: string, wheelchair: string, start_date: datetime, end_date: datetime, rainy_alternative:integer
+
+*Authorization true*
+POST /locations/{id}/events
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:14:33 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:91e36544d7300100c17d83b18f3a4046729524f4693e8fa439bcb7e630afe964"
+{"duration":20000,"summary":"descrizione del nuovo evento","start_date":"2013/08/13","language":"it","name":"nuovo evento","url":"http://www.maply.eu","created_at":"2013-06-06T15:01:20.804Z","updated_at":"2013-06-06T15:01:20.804Z","geom":"POINT (45.8219915 9.5103518)","place":"Locatello","cat":""}
+< 201
+{"id":7,"duration":20000,"summary":"descrizione del nuovo evento","start_date":"2013/08/13","language":"it","name":"nuovo evento","url":"http://www.maply.eu","created_at":"2013-06-18T16:09:24.030Z","updated_at":"2013-06-18T16:09:24.030Z","geom":"POINT (45.811531 9.535014)","place":"Locatello","main_image":null,"cat":"","feature_id":78}
+
+Update event information
+
+put *active = true* to publish the event
+
+#Params are:
+
+active, theme, duration, name_it, name_en,  cat, description_it, description_en, price, operator, contact_phone, contact_phone_mobile, internet_access, contact_website, contact_email, url_facebook, url_twitter, dog, wheelchair, start_date, end_date, rainy_alternative
+
+*Authorization true*
+PUT /events/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:08:42 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 6:1dfa8c09b002bb5605b1cba53f5946655c01036fc1005317920776de522b31ef"
+< 200
+{"id":1,"duration":100000,"name_it":"Evento con stile","geom":null,"place_it":"Sant'Omobono","cat":"","feature_id":116,"name_en":null,"place_en":null,"description_it":null,"description_en":null,"price":null,"contact_phone":null,"contact_phone_mobile":null,"internet_access":null,"contact_website":null,"contact_email":null,"url_facebook":null,"url_twitter":null,"dog":null,"wheelchair":null,"start_date":"2013-07-30T21:30:00.000Z","end_date":"2013-08-01T01:16:40.000Z", "active":true}
+
+This resource allows you to retrieve information about the events with descendent order
+
+#Permitted Params:
+
+start_date
+
+*Pagination true*
+
+*Authorization true*
+GET /events
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:35:05 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 6:b85b0893691013092dae905a76d78c224f3cbaa0ba305530bb5cd378732dd063"
+< 200
+[{"id":7,"duration":20000,"name_it":"Cena con delitto","geom":"POINT (45.811531 9.535014)","place_it":"Locatello","cat":"","feature_id":78,"name_en":null,"place_en":null,"price":null,"start_date":"2013-07-18T20:30:00.000Z","end_date":"2013-07-19T02:03:20.000Z"},{"id":1,"duration":100000,"name_it":"Evento con stile","geom":null,"place_it":"Sant'Omobono","cat":"","feature_id":116,"name_en":null,"place_en":null,"price":null,"start_date":"2013-07-30T21:30:00.000Z","end_date":"2013-08-01T01:16:40.000Z"},{"id":4,"duration":20000,"name_it":"nuovo evento","geom":null,"place_it":"Locatello","cat":null,"feature_id":112,"name_en":null,"place_en":null,"price":null,"start_date":"2013-08-15T20:00:00.000Z","end_date":"2013-08-16T01:33:20.000Z"}]
+
+Returns events categories  
+
+*Authorization false*
+GET /events/categories
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:08:42 GMT"
+> Host: "94.23.67.144:3000"
+< 200
+[{"cat":"concert","name_it":"Musica","name_en":"Music"},{"cat":"meeting","name_it":"Manifestazione","name_en":"Meeting"},{"cat":"active","name_it":"Attivo","name_en":"Active"},{"cat":"talk","name_it":"Incontro","name_en":"Talk"},{"cat":"taste","name_it":"Gusto","name_en":"Taste"},{"cat":"market","name_it":"Mercato","name_en":"Market"},{"cat":"exhibit","name_it":"Mostra","name_en":"Exhibit"},{"cat":"show","name_it":"Spettacolo","name_en":"Show"},{"cat":"other","name_it":"Altro","name_en":"Other"}]
+
+Returns information about event by id  or slug
+
+*Authorization true*
+GET /events/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:08:42 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 6:1dfa8c09b002bb5605b1cba53f5946655c01036fc1005317920776de522b31ef"
+< 200
+{"id":1,"duration":100000,"name_it":"Evento con stile","geom":null,"place_it":"Sant'Omobono","cat":"","feature_id":116,"name_en":null,"place_en":null,"description_it":null,"description_en":null,"price":null,"contact_phone":null,"contact_phone_mobile":null,"internet_access":null,"contact_website":null,"contact_email":null,"url_facebook":null,"url_twitter":null,"dog":null,"wheelchair":null,"start_date":"2013-07-30T21:30:00.000Z","end_date":"2013-08-01T01:16:40.000Z"}
+
+Creates an image for the specified event
+
+The upload scales the image proportionally  *http://s3-eu-west-1.amazonaws.com/perantichecontrade/* : 
+
+*original* 
+
+*big* [2048, 2048]
+
+*medium* [512, 512]
+
+*thumb* [256, 256]
+
+es: 
+*http://s3-eu-west-1.amazonaws.com/perantichecontrade/thumb/5129a068-c221-4483-b3c7-89d4cd932d00.jpeg*
+
+POST /events/{id}/pictures
+> Content-Type: "multipart/form-data"
+> Host: "94.23.67.144:3000"
+Image Payload
+< 200
+{"id":75,"filename":"5129a068-c221-4483-b3c7-89d4cd932d00","extension":"jpeg"}
+
+Retrieve all the images for that events 
+
+*Authorization true*
+GET /events/{id}/pictures
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 13:45:07 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:be74d11dc960cffc11f620787bb77d9e36b1baeda23539827eb86ef870ce21e1"
+< 200
+[{"id":204,"filename":"74989240-df3e-4740-a226-5f74169a5c2d","extension":"png"},{"id":205,"filename":"1cd85d81-ab94-4a6b-8cc6-19bc08281e32","extension":"png"},{"id":206,"filename":"793b4885-e06c-46b0-ab12-98fdd33a80c9","extension":"png"}]
+
+Delete the event by id or slug
+
+*Authorization true*
+DELETE /events/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 15:56:25 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:8cc2a1a6cd426bae3351a60eb5c120009953db18e56ada98051048be2f8cb63f"
+< 200
+
+
+Delete the image for that events by id or slug
+
+*Authorization true*
+DELETE /events/{id}/pictures/{iid}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 15:56:25 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:8cc2a1a6cd426bae3351a60eb5c120009953db18e56ada98051048be2f8cb63f"
+< 200
+[{"id":165,"filename":"a0ac00b2-648c-4433-b676-ee617936631d","extension":"jpeg"}]
+
+
+Search for events
+
+Possible params are:
+
+["theme", "start_date", "end_date", "cat", "name", "feature_id", "active", "price", "internet_access", "dog", "wheelchair"]
+
+*Authorization true*
+
+*Pagination true*
+POST /events/search
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:38:17 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 6:4f202e3b69c47944340e0f7f057b0ae60f2ba3acc5d79ffc38c8505758d5b3b7"
+{"start_date":"Wed Jul 03 2013"}
+< 200
+[{"id":7,"duration":20000,"name_it":"Cena con delitto","geom":"POINT (45.811531 9.535014)","place_it":"Locatello","cat":"","feature_id":78,"name_en":null,"place_en":null,"price":null,"start_date":"2013-07-18T20:30:00.000Z","end_date":"2013-07-19T02:03:20.000Z"},{"id":1,"duration":100000,"name_it":"Evento con stile","geom":null,"place_it":"Sant'Omobono","cat":"","feature_id":116,"name_en":null,"place_en":null,"price":null,"start_date":"2013-07-30T21:30:00.000Z","end_date":"2013-08-01T01:16:40.000Z"},{"id":4,"duration":20000,"name_it":"nuovo evento","geom":null,"place_it":"Locatello","cat":null,"feature_id":112,"name_en":null,"place_en":null,"price":null,"start_date":"2013-08-15T20:00:00.000Z","end_date":"2013-08-16T01:33:20.000Z"}]
+
+
+
+
+Add a theme keyword to the event by id or slug
+
+#Params:
+
+theme: string
+
+*Authorization true*
+POST /events/{id}/themes
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:08:42 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 6:1dfa8c09b002bb5605b1cba53f5946655c01036fc1005317920776de522b31ef"
+< 200
+{"id":1,"duration":100000,"name_it":"Evento con stile","geom":null,"place_it":"Sant'Omobono","cat":"","feature_id":116,"name_en":null,"place_en":null,"description_it":null,"description_en":null,"price":null,"contact_phone":null,"contact_phone_mobile":null,"internet_access":null,"contact_website":null,"contact_email":null,"url_facebook":null,"url_twitter":null,"dog":null,"wheelchair":null,"start_date":"2013-07-30T21:30:00.000Z","end_date":"2013-08-01T01:16:40.000Z"}
+
+Show the theme keywords of the event by id or slug
+
+*Authorization true*
+GET /events/{id}/themes
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:08:42 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 6:1dfa8c09b002bb5605b1cba53f5946655c01036fc1005317920776de522b31ef"
+< 200
+{"id":1,"duration":100000,"name_it":"Evento con stile","geom":null,"place_it":"Sant'Omobono","cat":"","feature_id":116,"name_en":null,"place_en":null,"description_it":null,"description_en":null,"price":null,"contact_phone":null,"contact_phone_mobile":null,"internet_access":null,"contact_website":null,"contact_email":null,"url_facebook":null,"url_twitter":null,"dog":null,"wheelchair":null,"start_date":"2013-07-30T21:30:00.000Z","end_date":"2013-08-01T01:16:40.000Z"}
+
+Delete theme keyword of the event by id or slug and theme param
+
+*Authorization true*
+DELETE /events/{id}/themes/{iid}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 03 Jul 2013 15:08:42 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 6:1dfa8c09b002bb5605b1cba53f5946655c01036fc1005317920776de522b31ef"
+< 200
+
+
+--
+Location Resources 
+#Overview
+
+id, slug, geom, name_it
+
+#Details
+
+id, slug, geom, name_it, description_it, addr_city, addr_street, addr_housenumber
+
+--
+Create a generic location
+
+#Params are:
+
+lat: float, lon: float, name: string, description_it: text, addr_city: string, addr_street: string, addr_housenumber: string
+
+#Note
+
+lat, lon and name are mandatory
+
+*Authorization true*
+POST /locations
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:01:46 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:c5b487fe61b3cc8078514c34827fdefb1ed986591810e41eca5354e9cdf5d748"
+< 200
+
+
+Update location by id 
+
+*Authorization true*
+PUT /locations/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 07 Aug 2013 12:54:23 GMT"
+> Host: "94.23.67.144:3002"
+> Authorization: "Authgraph 7:f67414e050973964de1d1f249664655ced13e4605ba4a7b6707bc1d62293eeb7"
+< 200
+[{"id":84,"geom":"POINT (45.830276 9.513033)","name":"Hotel Resort \u0026 Spa Miramonti","addr_city":"Rota d’Imagna","addr_housenumber":"5","addr_street":"Via alle fonti","cat":"hotel"}]
+
+
+Retrieve all the locations
+
+*Authorization true*
+GET /locations
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 07 Aug 2013 12:54:23 GMT"
+> Host: "94.23.67.144:3002"
+> Authorization: "Authgraph 7:f67414e050973964de1d1f249664655ced13e4605ba4a7b6707bc1d62293eeb7"
+< 200
+[{"id":84,"geom":"POINT (45.830276 9.513033)","name":"Hotel Resort \u0026 Spa Miramonti","addr_city":"Rota d’Imagna","addr_housenumber":"5","addr_street":"Via alle fonti","cat":"hotel"}]
+
+Returns information about location by id or slug
+
+*Authorization true*
+GET /locations/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Tue, 18 Jun 2013 16:20:30 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:5f40e66d0fb9f7e7637aaa2a28a3db9389652f3fcd3d31469b9d85f48e85f36f"
+< 200
+{"id":75,"geom":"POINT (45.811194 9.535151)","name":"Calzature e Pelletterie A.Mager di Micheletti e Mager","addr_city":"S. Omobono Terme","addr_street":"Via vittorio veneto","addr_housenumber":"69","cat":null}
+
+Creates an image for the specified location
+
+The upload scales the image proportionally  *http://s3-eu-west-1.amazonaws.com/perantichecontrade/* : 
+
+*original* 
+
+*big* [2048, 2048]
+
+*medium* [512, 512]
+
+*thumb* [256, 256]
+
+es: 
+*http://s3-eu-west-1.amazonaws.com/perantichecontrade/thumb/5129a068-c221-4483-b3c7-89d4cd932d00.jpeg*
+
+
+POST /locations/{id}/pictures
+> Content-Type: "multipart/form-data"
+> Host: "94.23.67.144:3000"
+Image Payload
+< 200
+{"id":75,"filename":"5129a068-c221-4483-b3c7-89d4cd932d00","extension":"jpeg"}
+
+Retrieve all the images for that location 
+
+*Authorization true*
+GET /locations/{id}/pictures
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 13:45:07 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:be74d11dc960cffc11f620787bb77d9e36b1baeda23539827eb86ef870ce21e1"
+< 200
+[{"id":204,"filename":"74989240-df3e-4740-a226-5f74169a5c2d","extension":"png"},{"id":205,"filename":"1cd85d81-ab94-4a6b-8cc6-19bc08281e32","extension":"png"},{"id":206,"filename":"793b4885-e06c-46b0-ab12-98fdd33a80c9","extension":"png"}]
+
+Delete the location
+
+*Authorization true*
+DELETE /locations/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 15:56:25 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:8cc2a1a6cd426bae3351a60eb5c120009953db18e56ada98051048be2f8cb63f"
+< 200
+[{"id":165,"filename":"a0ac00b2-648c-4433-b676-ee617936631d","extension":"jpeg"}]
+
+
+Delete the image for that location by id or slug
+
+*Authorization true*
+DELETE /locations/{id}/pictures/{iid}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 15:56:25 GMT"
+> Host: "94.23.67.144:3000"
+> Authorization: "Authgraph 1:8cc2a1a6cd426bae3351a60eb5c120009953db18e56ada98051048be2f8cb63f"
+< 200
+[{"id":165,"filename":"a0ac00b2-648c-4433-b676-ee617936631d","extension":"jpeg"}]
+
+
