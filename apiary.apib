@@ -200,6 +200,140 @@ GET /tourism/themes
 [{"id":1,"theme":"wellness","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.703Z","updated_at":"2014-08-28T16:05:56.703Z"},{"id":2,"theme":"family","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.710Z","updated_at":"2014-08-28T16:05:56.710Z"},{"id":3,"theme":"culture","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.728Z","updated_at":"2014-08-28T16:05:56.728Z"},{"id":4,"theme":"outdoors","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.731Z","updated_at":"2014-08-28T16:05:56.731Z"},{"id":5,"theme":"taste","name_it":null,"name_en":null,"name_ru":null,"created_at":"2014-08-28T16:05:56.737Z","updated_at":"2014-08-28T16:05:56.737Z"}]
 
 -- 
+Offer Resources 
+This resource allows you to retrieve information about the offers
+#Overview
+
+id, name_en, name_it, unit_pricing_measure, product_type, brand, price, sale_price, sale_price_effective_start, sale_price_effective_end, quantity, feature_id, feature_name, discount_perc, image, intro_it, intro_en, geom, addr_city, addr_housenumber, addr_street, contact_email, contact_phone, contact_phone_mobile, contact_website, contact_facebook, code, middlecat, promo_type, to_fb, slug, modified
+
+#Details
+
+id, name_en, name_it, description_it, description_en, unit_pricing_measure, product_type, brand, price, sale_price, sale_price_effective_start, sale_price_effective_end, quantity, feature_id, feature_name, discount_perc, image, intro_it, intro_en, geom, addr_city, addr_housenumber, addr_street, contact_email, contact_phone, contact_phone_mobile, contact_website, contact_facebook, publication_date, depublication_date, code, middlecat, promo_type, to_fb, slug, modified
+--
+
+List offers present in the system where sale_price_effective_end >= current date.
+
+*Authorization true*
+
+*Pagination true*
+
+GET /offers
+> Content-Type: "application/json"
+> Date: "Thu, 06 Jun 2013 10:45:48 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:7a7b69e87175e7f9b5fe5038a07fd02c5571df2c2fe74e1e10d7b4fff6e5ab01"
+< 200
+[{"id":8,"name_en":null,"name_it":"Speciale San Valentino","unit_pricing_measure":null,"product_type":"restaurant","brand":null,"price":null,"sale_price":null,"sale_price_effective_start":"2015-02-01T00:00:00.000Z","sale_price_effective_end":"2015-02-15T00:00:00.000Z","quantity":null,"feature_id":293,"feature_name":"Albergo Ristorante \"Le tre lanterne\"","discount_perc":"20","image":"9d4cdeee-db59-418f-bc7c-28c9e564ab0e.jpeg","intro_it":null,"intro_en":null,"geom":"POINT (45.8387132 9.664901699999973)","addr_city":null,"addr_housenumber":null,"addr_street":null,"contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"contact_facebook":null,"code":null,"middlecat":"23","promo_type":"tipo_percentuale","to_fb":false,"slug":"speciale-san-valentino","modified":true}]
+
+Create an offer for that business 
+
+*Authorization true*
+POST /businesses/{id}/offers
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 13:37:41 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:9d991b30d8fd6755c91aa50a40408fd3b13df64d9f8c513a7cd680245872821e"
+{"name_en":null,"name_it":"Speciale San Valentino","unit_pricing_measure":null,"product_type":"restaurant","brand":null,"price":null,"sale_price":null,"sale_price_effective_start":"2015-02-01T00:00:00.000Z","sale_price_effective_end":"2015-02-15T00:00:00.000Z","quantity":null,"feature_id":293,"feature_name":"Albergo Ristorante \"Le tre lanterne\"","discount_perc":"20","image":null,"intro_it":null,"intro_en":null,"geom":"POINT (45.8387132 9.664901699999973)","addr_city":null,"addr_housenumber":null,"addr_street":null,"contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"contact_facebook":null,"code":null,"middlecat":"23","promo_type":"tipo_percentuale"}
+< 201
+{"id":8,"name_en":null,"name_it":"Speciale San Valentino","unit_pricing_measure":null,"product_type":"restaurant","brand":null,"price":null,"sale_price":null,"sale_price_effective_start":"2015-02-01T00:00:00.000Z","sale_price_effective_end":"2015-02-15T00:00:00.000Z","quantity":null,"feature_id":293,"feature_name":"Albergo Ristorante \"Le tre lanterne\"","discount_perc":"20","image":null,"intro_it":null,"intro_en":null,"geom":"POINT (45.8387132 9.664901699999973)","addr_city":null,"addr_housenumber":null,"addr_street":null,"contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"contact_facebook":null,"code":null,"middlecat":"23","promo_type":"tipo_percentuale","to_fb":false,"slug":"speciale-san-valentino","modified":true}
+
+
+Search for offers by params
+*Authorization true*
+
+#notes
+{publication_date: y, depublication_date: x} => *publication_date >= y AND depublication_date <= x*
+
+{publication_date: y} => *publication_date >= y*
+
+{depublication_date: x} => *depublication_date <= x*
+
+default => *publication_date <= *<today>* AND depublication_date >=* <today>
+
+{modified: true} => *publication_date <= *<today>* AND depublication_date >=* <today> *AND modified = true*
+
+
+POST /offers/search
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 10:52:11 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:e6699dece8d9b59793ef71cd5cd826687a82e0dc43bd55a3344da763456db665"
+{}
+< 200
+[{"id":8,"name_en":null,"name_it":"Speciale San Valentino","unit_pricing_measure":null,"product_type":"restaurant","brand":null,"price":null,"sale_price":null,"sale_price_effective_start":"2015-02-01T00:00:00.000Z","sale_price_effective_end":"2015-02-15T00:00:00.000Z","quantity":null,"feature_id":293,"feature_name":"Albergo Ristorante \"Le tre lanterne\"","discount_perc":"20","image":null,"intro_it":null,"intro_en":null,"geom":"POINT (45.8387132 9.664901699999973)","addr_city":null,"addr_housenumber":null,"addr_street":null,"contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"contact_facebook":null,"code":null,"middlecat":"23","promo_type":"tipo_percentuale","to_fb":false,"slug":"speciale-san-valentino","modified":true}]
+
+Return offer by id
+
+*Authorization true*
+GET /offers/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 10:52:11 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:e6699dece8d9b59793ef71cd5cd826687a82e0dc43bd55a3344da763456db665"
+< 200
+{"id":8,"name_en":null,"name_it":"Speciale San Valentino","unit_pricing_measure":null,"product_type":"restaurant","brand":null,"price":null,"sale_price":null,"sale_price_effective_start":"2015-02-01T00:00:00.000Z","sale_price_effective_end":"2015-02-15T00:00:00.000Z","quantity":null,"feature_id":293,"feature_name":"Albergo Ristorante \"Le tre lanterne\"","discount_perc":"20","image":null,"intro_it":null,"intro_en":null,"geom":"POINT (45.8387132 9.664901699999973)","addr_city":null,"addr_housenumber":null,"addr_street":null,"contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"contact_facebook":null,"code":null,"middlecat":"23","promo_type":"tipo_percentuale","to_fb":false,"slug":"speciale-san-valentino","modified":true}
+
+Update offer by id
+
+*Authorization true*
+PUT /offers/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 13:10:07 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:59a56daa0ed2b0bf3cb07f295b0cebb60b7e130d2918abe982b6d0aa54f5f989"
+{"name_en":null,"name_it":"Speciale San Valentino","unit_pricing_measure":null,"product_type":"restaurant","brand":null,"price":null,"sale_price":null,"sale_price_effective_start":"2015-02-01T00:00:00.000Z","sale_price_effective_end":"2015-02-15T00:00:00.000Z","quantity":null,"feature_id":293,"feature_name":"Albergo Ristorante \"Le tre lanterne\"","discount_perc":"20","image":null,"intro_it":null,"intro_en":null,"geom":"POINT (45.8387132 9.664901699999973)","addr_city":null,"addr_housenumber":null,"addr_street":null,"contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"contact_facebook":null,"code":null,"middlecat":"23","promo_type":"tipo_percentuale"}
+< 200
+{"id":8,"name_en":null,"name_it":"Speciale San Valentino","unit_pricing_measure":null,"product_type":"restaurant","brand":null,"price":null,"sale_price":null,"sale_price_effective_start":"2015-02-01T00:00:00.000Z","sale_price_effective_end":"2015-02-15T00:00:00.000Z","quantity":null,"feature_id":293,"feature_name":"Albergo Ristorante \"Le tre lanterne\"","discount_perc":"20","image":null,"intro_it":null,"intro_en":null,"geom":"POINT (45.8387132 9.664901699999973)","addr_city":null,"addr_housenumber":null,"addr_street":null,"contact_email":null,"contact_phone":null,"contact_phone_mobile":null,"contact_website":null,"contact_facebook":null,"code":null,"middlecat":"23","promo_type":"tipo_percentuale","to_fb":false,"slug":"speciale-san-valentino","modified":true}
+
+Delete offer by id
+
+*Authorization true*
+DELETE /offers/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 13:18:29 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:5f4d5a9006012df26a6d9619b2fcf2cba77e17e713893a1cb2a4e677ded4143a"
+< 200
+
+
+Creates an image for the specified offer 
+
+The upload scales the image proportionally  *http://s3-eu-west-1.amazonaws.com/invalleimagna/* : 
+
+*original* 
+
+*big* [2048, 2048]
+
+*medium* [512, 512]
+
+*thumb* [256, 256]
+
+es: 
+*http://s3-eu-west-1.amazonaws.com/invalleimagna/thumb/5129a068-c221-4483-b3c7-89d4cd932d00.jpeg*
+
+POST /offers/{id}/pictures
+> Content-Type: "multipart/form-data"
+> Host: "185.17.106.105:3002"
+Image Payload
+< 200
+{"id":75,"filename":"5129a068-c221-4483-b3c7-89d4cd932d00","extension":"jpeg"}
+
+Retrieve all the images for that offer 
+
+*Authorization true*
+GET /offers/{id}/pictures
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 13:45:07 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:be74d11dc960cffc11f620787bb77d9e36b1baeda23539827eb86ef870ce21e1"
+< 200
+[{"id":57,"filename":"4924d537-f582-4f1e-b2bc-f6fbb714c325","extension":"jpeg"},{"id":58,"filename":"d79c3d44-f2d7-4306-b38a-5cb0ee40f6cd","extension":"jpeg"},{"id":59,"filename":"1aafa4f3-5ddb-4eca-9255-7c4ae639ac79","extension":"jpeg"},{"id":60,"filename":"71a90708-e1ce-4091-82a8-cf124b2d3bbe","extension":"png"},{"id":63,"filename":"a3904177-667f-407e-bce3-39227327935f","extension":"jpeg"},{"id":64,"filename":"9773d429-1ee9-460a-a728-5f1786a3e21e","extension":"jpeg"},{"id":67,"filename":"0a59433a-d87c-4dc4-a717-32e09f308654","extension":"jpeg"},{"id":68,"filename":"c858232d-80f2-45c4-a6e7-c76711326902","extension":"jpeg"},{"id":71,"filename":"e547b59c-59a0-4aa5-ad24-ea3d8c1c3026","extension":"png"},{"id":72,"filename":"73cac94d-9f00-4e81-8d5c-a5711fcf6937","extension":"jpeg"},{"id":73,"filename":"80723d33-f462-4535-83d1-a855487cb1bd","extension":"jpeg"},{"id":74,"filename":"30eaac82-a41a-4c28-b3b7-18131f206f61","extension":"jpeg"},{"id":75,"filename":"5129a068-c221-4483-b3c7-89d4cd932d00","extension":"jpeg"}]
+
+
+
+
+
+-- 
 Event Resources 
 #Overview
 
