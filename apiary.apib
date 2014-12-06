@@ -248,9 +248,9 @@ Search for offers by params
 
 {depublication_date: x} => *depublication_date <= x*
 
-default => *publication_date <= *<today>* AND depublication_date >=* <today>
+default => *publication_date <= today AND depublication_date >= today*
 
-{modified: true} => *publication_date <= *<today>* AND depublication_date >=* <today> *AND modified = true*
+{modified: true} => *publication_date <= today AND depublication_date >= today AND modified = true*
 
 
 POST /offers/search
