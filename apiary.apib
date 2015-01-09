@@ -654,4 +654,115 @@ DELETE /locations/{id}/pictures/{iid}
 < 200
 [{"id":165,"filename":"a0ac00b2-648c-4433-b676-ee617936631d","extension":"jpeg"}]
 
+-- 
+News Resources 
+This resource allows you to retrieve information about the news
+
+--
+
+List all the news
+
+*Authorization true*
+
+*Pagination true*
+
+GET /news
+> Content-Type: "application/json"
+> Date: "Thu, 06 Jun 2013 10:45:48 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:7a7b69e87175e7f9b5fe5038a07fd02c5571df2c2fe74e1e10d7b4fff6e5ab01"
+< 200
+[{"id":7,"title":"Bando per la selezione di 15 partecipanti a laboratori di formazione","intro":"L’Associazione del Distretto del Commercio “Fontium et Mercatorum” organizza una selezione di 15 giovani che parteciperanno a un percorso formativo gratuito della durata complessiva di 104 ore.","image":null,"created_at":"2015-01-08T10:55:14.096Z","slug":"bando-per-la-selezione-di-15-partecipanti-a-laboratori-di-formazione","expiration_date":null},{"id":4,"title":"Inaugurazione delle nuove Terme di San Pellegrino ","intro":"Non perdetevi l'inaugurazione delle nuove Terme di San Pellegrino","image":null,"created_at":"2014-12-01T09:35:31.559Z","slug":"inaugurazione-delle-nuove-terme-di-san-pellegrino","expiration_date":null},{"id":3,"title":"Presentazione del Sistema Informativo del Distretto","intro":"Il Distretto presenta il suo nuovo Sistema Informativo","image":null,"created_at":"2014-10-06T11:48:32.710Z","slug":"presentazione-del-sistema-informativo-del-distretto","expiration_date":"2015-01-09T00:00:00.000Z"}]
+
+
+
+Search for news by params
+
+*Authorization true*
+
+#notes
+
+le_expiration_date = ' expiration_date <= ?'
+
+me_expiration_date = ' expiration_date >= ?'
+
+
+POST /news/search
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 10:52:11 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:e6699dece8d9b59793ef71cd5cd826687a82e0dc43bd55a3344da763456db665"
+{"le_expiration_date":'2015-02-01'}
+< 200
+[{"id":3,"title":"Presentazione del Sistema Informativo del Distretto","intro":"Il Distretto presenta il suo nuovo Sistema Informativo","description":"Nuovo appuntamento il 1 Dicembre: non mancate alla presentazione del nuovo Sistema Informativo dedicato al Distretto 'Fontium et Mercatorum'","image":null,"image_id":null,"main_image":null,"created_at":"2014-10-06T11:48:32.710Z","updated_at":"2015-01-09T12:49:49.992Z","slug":"presentazione-del-sistema-informativo-del-distretto","expiration_date":"2015-01-09T00:00:00.000Z"}]
+
+Return news by id
+
+*Authorization true*
+GET /news/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 10:52:11 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:e6699dece8d9b59793ef71cd5cd826687a82e0dc43bd55a3344da763456db665"
+< 200
+{"id":7,"title":"Bando per la selezione di 15 partecipanti a laboratori di formazione","intro":"L’Associazione del Distretto del Commercio “Fontium et Mercatorum” organizza una selezione di 15 giovani che parteciperanno a un percorso formativo gratuito della durata complessiva di 104 ore.","description":"Il Distretto del Commercio “Fontium et Mercatorum” intende fornire a 15 giovani gli strumenti e le metodologie necessarie a presentare l'offerta turistica locale e a svolgere l’attività di accompagnamento, contribuendo a promuovere il territorio e creando opportunità di lavoro in occasione di EXPO 2015 e per gli anni a venire.\nLa scadenza per la presentazione delle domande di partecipazione è \u003Cstrong\u003Evenerdì 30 Gennaio 2015 alle ore 12.00\u003C/strong\u003E.\nClicca qui per scaricare il testo del Bando e i moduli di partecipazione:\n\u003Cul\u003E\n\u003Cli\u003E\u003Ca href=\"/images/Bando Formazione per EXPO nei nostri territori.pdf\" target=\"_blank\"\u003EBando Formazione per EXPO nei nostri territori\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\"/images/Bando Formazione per EXPO nei nostri territori - Domanda.pdf\" target=\"_blank\"\u003EBando Formazione per EXPO nei nostri territori - Domanda\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\"/images/Bando Formazione per EXPO nei nostri territori - Dichiarazione Sostitutiva.pdf\" target=\"_blank\"\u003EBando Formazione per EXPO nei nostri territori - Dichiarazione Sostitutiva\u003C/a\u003E\u003C/li\u003E\n\u003C/ul\u003E","image":null,"created_at":"2015-01-08T10:55:14.096Z","slug":"bando-per-la-selezione-di-15-partecipanti-a-laboratori-di-formazione","expiration_date":null}
+
+Update news by id
+
+*Authorization true*
+PUT /news/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 13:10:07 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:59a56daa0ed2b0bf3cb07f295b0cebb60b7e130d2918abe982b6d0aa54f5f989"
+{"title":"Bando per la selezione di 15 partecipanti a laboratori di formazione"}
+< 200
+{"id":7,"title":"Bando per la selezione di 15 partecipanti a laboratori di formazione","intro":"L’Associazione del Distretto del Commercio “Fontium et Mercatorum” organizza una selezione di 15 giovani che parteciperanno a un percorso formativo gratuito della durata complessiva di 104 ore.","description":"Il Distretto del Commercio “Fontium et Mercatorum” intende fornire a 15 giovani gli strumenti e le metodologie necessarie a presentare l'offerta turistica locale e a svolgere l’attività di accompagnamento, contribuendo a promuovere il territorio e creando opportunità di lavoro in occasione di EXPO 2015 e per gli anni a venire.\nLa scadenza per la presentazione delle domande di partecipazione è \u003Cstrong\u003Evenerdì 30 Gennaio 2015 alle ore 12.00\u003C/strong\u003E.\nClicca qui per scaricare il testo del Bando e i moduli di partecipazione:\n\u003Cul\u003E\n\u003Cli\u003E\u003Ca href=\"/images/Bando Formazione per EXPO nei nostri territori.pdf\" target=\"_blank\"\u003EBando Formazione per EXPO nei nostri territori\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\"/images/Bando Formazione per EXPO nei nostri territori - Domanda.pdf\" target=\"_blank\"\u003EBando Formazione per EXPO nei nostri territori - Domanda\u003C/a\u003E\u003C/li\u003E\n\u003Cli\u003E\u003Ca href=\"/images/Bando Formazione per EXPO nei nostri territori - Dichiarazione Sostitutiva.pdf\" target=\"_blank\"\u003EBando Formazione per EXPO nei nostri territori - Dichiarazione Sostitutiva\u003C/a\u003E\u003C/li\u003E\n\u003C/ul\u003E","image":null,"created_at":"2015-01-08T10:55:14.096Z","slug":"bando-per-la-selezione-di-15-partecipanti-a-laboratori-di-formazione","expiration_date":null}
+
+Delete news by id
+
+*Authorization true*
+DELETE /news/{id}
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Thu, 06 Jun 2013 13:18:29 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:5f4d5a9006012df26a6d9619b2fcf2cba77e17e713893a1cb2a4e677ded4143a"
+< 200
+
+
+Creates an image for the specified news 
+
+The upload scales the image proportionally  *http://s3-eu-west-1.amazonaws.com/valbrembana/* : 
+
+*original* 
+
+*big* [2048, 2048]
+
+*medium* [512, 512]
+
+*thumb* [256, 256]
+
+es: 
+*http://s3-eu-west-1.amazonaws.com/valbrembana/thumb/5129a068-c221-4483-b3c7-89d4cd932d00.jpeg*
+
+POST /news/{id}/pictures
+> Content-Type: "multipart/form-data"
+> Host: "185.17.106.105:3002"
+Image Payload
+< 200
+{"id":75,"filename":"5129a068-c221-4483-b3c7-89d4cd932d00","extension":"jpeg"}
+
+Retrieve all the images for that new 
+
+*Authorization true*
+GET /news/{id}/pictures
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 13:45:07 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:be74d11dc960cffc11f620787bb77d9e36b1baeda23539827eb86ef870ce21e1"
+< 200
+[{"id":57,"filename":"4924d537-f582-4f1e-b2bc-f6fbb714c325","extension":"jpeg"},{"id":58,"filename":"d79c3d44-f2d7-4306-b38a-5cb0ee40f6cd","extension":"jpeg"},{"id":59,"filename":"1aafa4f3-5ddb-4eca-9255-7c4ae639ac79","extension":"jpeg"},{"id":60,"filename":"71a90708-e1ce-4091-82a8-cf124b2d3bbe","extension":"png"},{"id":63,"filename":"a3904177-667f-407e-bce3-39227327935f","extension":"jpeg"},{"id":64,"filename":"9773d429-1ee9-460a-a728-5f1786a3e21e","extension":"jpeg"},{"id":67,"filename":"0a59433a-d87c-4dc4-a717-32e09f308654","extension":"jpeg"},{"id":68,"filename":"c858232d-80f2-45c4-a6e7-c76711326902","extension":"jpeg"},{"id":71,"filename":"e547b59c-59a0-4aa5-ad24-ea3d8c1c3026","extension":"png"},{"id":72,"filename":"73cac94d-9f00-4e81-8d5c-a5711fcf6937","extension":"jpeg"},{"id":73,"filename":"80723d33-f462-4535-83d1-a855487cb1bd","extension":"jpeg"},{"id":74,"filename":"30eaac82-a41a-4c28-b3b7-18131f206f61","extension":"jpeg"},{"id":75,"filename":"5129a068-c221-4483-b3c7-89d4cd932d00","extension":"jpeg"}]
+
+
+
 
