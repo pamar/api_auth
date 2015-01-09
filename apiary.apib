@@ -243,15 +243,12 @@ Search for offers by params
 *Authorization true*
 
 #notes
-{publication_date: y, depublication_date: x} => *publication_date >= y AND depublication_date <= x*
-
-{publication_date: y} => *publication_date >= y*
-
-{depublication_date: x} => *depublication_date <= x*
-
-default => *publication_date <= today AND depublication_date >= today*
-
-{modified: true} => *publication_date <= today AND depublication_date >= today AND modified = true*
+le_publication_date = ' publication_date <= ?'
+me_publication_date = ' publication_date >= ?'
+le_depublication_date = ' depublication_date <= ?'
+me_depublication_date = ' depublication_date >= ?'
+le_expiration_date = ' expiration_date <= ?'
+me_expiration_date = ' expiration_date >= ?'
 
 
 POST /offers/search
