@@ -765,4 +765,27 @@ GET /news/{id}/pictures
 
 
 
+Creates a pdf for the specified news 
+
+*http://s3-eu-west-1.amazonaws.com/valbrembana/docs/5129a068-c221-4483-b3c7-89d4cd932d00.pdf*
+
+POST /news/{id}/documents
+> Content-Type: "multipart/form-data"
+> Host: "185.17.106.105:3002"
+Image Payload
+< 200
+{"id":75,"filename":"5129a068-c221-4483-b3c7-89d4cd932d00","extension":"pdf"}
+
+Retrieve all the images for that new 
+
+*Authorization true*
+GET /news/{id}/documents
+> Content-Type: "application/x-www-form-urlencoded; charset=UTF-8"
+> Date: "Wed, 12 Jun 2013 13:45:07 GMT"
+> Host: "185.17.106.105:3002"
+> Authorization: "Authgraph 1:be74d11dc960cffc11f620787bb77d9e36b1baeda23539827eb86ef870ce21e1"
+< 200
+[{"id":57,"filename":"4924d537-f582-4f1e-b2bc-f6fbb714c325","extension":"pdf"},{"id":58,"filename":"d79c3d44-f2d7-4306-b38a-5cb0ee40f6cd","extension":"pdf"},{"id":59,"filename":"1aafa4f3-5ddb-4eca-9255-7c4ae639ac79","extension":"jpeg"},{"id":60,"filename":"71a90708-e1ce-4091-82a8-cf124b2d3bbe","extension":"pdf"}]
+
+
 
